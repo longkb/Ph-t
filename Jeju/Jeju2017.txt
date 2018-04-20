@@ -1,0 +1,54 @@
+When multiple PNFs or VNFs provide a similar functionality, there may be slight functional or qualitative differences. 
+
+A software router or firewall may e.g. support newer protocol versions or more modern functionality than older, physical devices, but they may also be slower. 
+
+In some cases, the functionality of different NFs may also overlap. It may e.g. be possible to configure a Deep Packet Inspection (DPI) NF to offer firewall functionality
+
+For some SFCs these differences could be more constraining than for others, meaning they must always make use of specific NFs, while other SFC definitions could be more flexible, allowing for the use multiple different physical or virtual NFs with varying quality characteristics
+
+This flexibility can be used to choose the most cost-efficient service chain configuration at runtime, making it useful to model these potential variations, and to take them into account during the resource allocation process
+
+In addition, this approach also makes it possible to model a degraded, lower quality fallback version of the SFCs that can be used when service failures cannot be avoided due to network failures or capacity shortages.
+
+In this article, we introduce Customizable Function Chains (CFCs), an extension to SFCs that takes service chain variability into account, and define a management approach that is capable of deploying CFCs in hybrid NFV networks
+
+To model CFC variability, we make use of Software Product Line Engineering (SPLE) [2] concepts. SPLE techniques are often used to develop highly customizable software, of which multiple variants can exist
+
+Using this approach, the software is modeled as a collection of features, that can be included or excluded. By selecting and deselecting features, different software variants can be created. Thus, a CFC not only specifies the used NFs and their interconnections, but also a model describing the relations between the NFs
+
+To allocate CFCs on a network, we present a Customizable Function Chain Placement (CFC-P) model, which we compare to a Service Function Chain Placement (SFC-P) model which does not take variability into account
+_____________________________________________________________________
+Every service chain C 2 CFC has an associated feature model FC. This feature model contains a collection of features, f, and defines the relations between these features. The resource demand for a feature, and the network demand between features is dependent on which features are included
+
+Finally, the chain fail cost FCC is redefined as the cost of completely failing the service chain, while a new feature fail cost FCCf represents the cost of failing to provide a specific feature f
+
+When a feature should be included, but may fail in some cases, a feature fail cost should be assigned to it
+
+The feature models provided by CFCs allow for more flexible network service specifications
+
+While in SFC-P a service chain is either allocated in its entirety or not at all, CFC-P allows to make a distinction between individual feature failure and complete service failure, where the former results in a lower cost than the latter, making it possible to provide a degraded service chain when there is insufficient capacity to allocate the complete service
+
+Therefore, an additional cost of feature failure CFF is defined. This cost per feature is expressed in Equation (30) and is used in the CFC-P objective function composed out of the resource utilization cost CR, and the failure costs CF and CFF , shown in Equation (31)
+
+As the SFC-P and CFC-P models allow service chain failures, a trivial feasible solution where every service fails can always be found
+
+This ensures the algorithms will always result in a feasible solution
+
+We compare the two optimal ILP-based algorithms implementing the SFC-P and CFC-P models, and also compare their performance with time-limited versions of the ILPs
+
+_________________
+We consider a connectivity service where a source and sink node are interconnected. This connection may be direct, but optionally, the packets may be intercepted and analyzed. This analysis can be achieved using a firewall, or alternatively using a DPI service
+
+As a DPI service requires more computational resources, a sampled DPI service where a fraction of the requests are analyzed using DPI and the other packets are analyzed using a regular firewall can be supported as well
+
+A feature model for the connectivity CFC is shown in Figure 5, together with the associated services. Figure 6 shows the alternative CFC deployments that this feature model results in
+
+Resource demand and service demand are represented by Dnet and Ds respectively, and can vary for different applications
+
+Note that, while the DPI feature results in the inclusion of the DPI service, the load on this service depends on how the service is instantiated (i.e. as a full DPI service or as a sampled DPI service)
+
+The structure of this model makes it possible to create open variation points [22], that leave some variability decisions undecided when the CFC is specified, allowing the management system to decide at runtime how the service chains are deployed
+
+This can potentially result in a reduction of the number of instances when there is sufficient capacity on existing DPI NFs, as then no routing and firewall NF instances are needed
+
+hese types result in two firewalled connectivity services, one where the firewall may be disabled during short periods of time due to service overload, and one where this may not occur, and three DPI services, one using sampled, one with full DPI with fallbacks, and one without fallbacks
