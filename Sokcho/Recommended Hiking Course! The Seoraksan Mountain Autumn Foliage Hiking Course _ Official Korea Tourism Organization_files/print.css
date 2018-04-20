@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+*		{ margin:0px; padding:0px; }
+
+/* body	{ width:100%; height:100%; background-color:#ffffff; }
+
+ #Lang_TopMenu_Wrap		{ display:none; }
+#Lang_Left_Wrap_Sub		{ display:none; }
+#Lang_Left_Wrap			{ visibility:hidden; display:none; }
+#Lang_Footer_Wrap		{ display:none; }
+
+#Wrap				{ width:100%; }
+#Content_Wrap		{ float:none; position:absolute; left:0px; width:100%; } */
+
+
+body	{ width:100%; height:100%; background:none; }
+
+#Lang_TopMenu_Wrap	{ visibility:hidden;display:none; }
+#Lang_Left_Wrap_Sub		{ display:none; }
+#Lang_Left_Wrap	{ visibility:hidden; display:none; }
+#Lang_Footer_Wrap	{ display:none;  visibility:hidden; }
+
+#Wrap	{ width:100%; }
+#Content_Wrap		{ float:none; position:absolute; left:0px; width:100%; margin:0px 0px 0px -180px; }
+#Lang_Middle_Wrap #Lang_Content_Wrap {background:none;}
+
+#Lang_Content_Search { visibility:hidden;display:none; }
+#Quick_Banner { visibility:hidden; display:none; }

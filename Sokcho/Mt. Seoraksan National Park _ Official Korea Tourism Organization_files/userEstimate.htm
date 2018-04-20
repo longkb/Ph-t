@@ -1,0 +1,35 @@
+<!-- itis -->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="Stylesheet" type="text/css" href="index_data/print.css" media="print">
+<link rel="stylesheet" type="text/css" href="userEstimate_data/depth.css">
+
+<script language="javascript" src="userEstimate_data/validate.js"></script>
+<script language="javascript" src="userEstimate_data/popup.js"></script>
+<script language="javascript" src="userEstimate_data/common.js"></script>
+<script language="javascript" src="userEstimate_data/uploadx.js"></script>
+<script type="text/javascript">
+<!--//
+function login() {
+	var msg=confirm("Do you want to log in?");
+	if (msg==true) {
+		parent.document.location.href="/login.kto?method=eLogin&md=ena&next_url=http://asiaenglish.visitkorea.or.kr/ena/SI/SI_EN_3_6.jsp?cid=309426";
+	}
+	return;
+}
+//-->
+</script>
+</head>
+
+ <!-- 사용자 평가하기 -->
+ <body><table border="0" cellpadding="0" cellspacing="0" width="520">
+   <tbody><tr> 
+    <td style="padding:10px 0px 5px 0px" valign="middle"><strong>User Ratings</strong> 
+     <img src="userEstimate_data/icon_star_0.gif" border="0"></td><td align="right"> <a href="javascript:login();"><img src="userEstimate_data/btn_valuation_1.gif" id="Valuation_Btn_1" alt="" align="right"></a></td>
+  </tr>
+  </tbody></table>
+	<!-- 사용자 평가하기 목록 -->
+	<iframe name="user_evaluation" id="user_evaluation" src="userEstimate_data/userEstimate.htm" scrolling="no" frameborder="0" height="200" width="520"></iframe>
+
+</body></html>

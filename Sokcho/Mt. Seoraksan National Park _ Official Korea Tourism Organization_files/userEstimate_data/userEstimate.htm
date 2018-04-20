@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- java api -->
+<!-- struts api -->
+<!-- itis_lib api -->
+<!-- itis -->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>사용자 평가하기</title>
+<!--<link type="text/css" rel="stylesheet" href="/admin/css/ti.css">-->
+<link rel="Stylesheet" type="text/css" href="userEstimate_data/print.htm" media="print">
+<link rel="stylesheet" type="text/css" href="depth.css">
+<script language="javascript" src="userEstimate_data/calendar.js"></script></head><body><div id="minical" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="background:buttonface; margin:5; padding:5;margin-top:2;border-top:1 solid buttonshadow;border-left: 1 solid buttonshadow;border-right: 1 solid buttonshadow;border-bottom:1 solid buttonshadow;width:160;display:none;position: absolute; z-index: 99" onmouseleave="doHide();"></div>
+<script language="javascript" src="userEstimate_data/date.js"></script>
+<script type="text/javascript" src="userEstimate_data/cal.js"></script><div onclick="bShow=true" id="calendar" style="z-index:+999;position:absolute;visibility:hidden;"><table style="font-family:arial;font-size:11px;border-width:1;border-style:solid;border-color:#a0a0a0;font-family:arial; font-size:11px}" bgcolor="#ffffff" width="250"><tbody><tr bgcolor="#0000aa"><td><table width="248"><tbody><tr><td style="padding:2px;font-family:arial; font-size:11px;"><font color="#ffffff"><b><span id="caption"><span id="spanLeft" style="border-style:solid;border-width:1;border-color:#3366FF;cursor:pointer" onmouseover='swapImage("changeLeft","left2.gif");this.style.borderColor="#88AAFF";window.status="이전 달(month)로 이동"' onclick="javascript:decMonth()" onmouseout='clearInterval(intervalID1);swapImage("changeLeft","left1.gif");this.style.borderColor="#3366FF";window.status=""' onmousedown='clearTimeout(timeoutID1);timeoutID1=setTimeout("StartDecMonth()",500)' onmouseup="clearTimeout(timeoutID1);clearInterval(intervalID1)">&nbsp;<img id="changeLeft" src="userEstimate_data/left1.gif" height="11" border="0" width="10">&nbsp;</span>&nbsp;<span id="spanRight" style="border-style:solid;border-width:1;border-color:#3366FF;cursor:pointer" onmouseover='swapImage("changeRight","right2.gif");this.style.borderColor="#88AAFF";window.status="다음 달(month)로 이동"' onmouseout='clearInterval(intervalID1);swapImage("changeRight","right1.gif");this.style.borderColor="#3366FF";window.status=""' onclick="incMonth()" onmousedown='clearTimeout(timeoutID1);timeoutID1=setTimeout("StartIncMonth()",500)' onmouseup="clearTimeout(timeoutID1);clearInterval(intervalID1)">&nbsp;<img id="changeRight" src="userEstimate_data/right1.gif" height="11" border="0" width="10">&nbsp;</span>&nbsp;<span id="spanYear" style="border-style:solid;border-width:1;border-color:#3366FF;cursor:pointer" onmouseover='swapImage("changeYear","drop2.gif");this.style.borderColor="#88AAFF";window.status="년(year)을 선택합니다."' onmouseout='swapImage("changeYear","drop1.gif");this.style.borderColor="#3366FF";window.status=""' onclick="popUpYear()"></span>&nbsp;<span id="spanMonth" style="border-style:solid;border-width:1;border-color:#3366FF;cursor:pointer" onmouseover='swapImage("changeMonth","drop2.gif");this.style.borderColor="#88AAFF";window.status="달(month)를 선택합니다."' onmouseout='swapImage("changeMonth","drop1.gif");this.style.borderColor="#3366FF";window.status=""' onclick="popUpMonth()"></span>&nbsp;</span></b></font></td><td align="right"><a href="javascript:hideCalendar()"><img src="userEstimate_data/close.gif" alt="Close the Calendar" height="13" border="0" width="15"></a></td></tr></tbody></table></td></tr><tr><td style="padding:5px" bgcolor="#ffffff"><span id="content"></span></td></tr><tr bgcolor="#f0f0f0"><td style="padding:5px" align="center"><span id="lblToday">현재일:  <a onmousemove='window.status="오늘 날자로 표시"' onmouseout='window.status=""' title="오늘 날자로 표시" style="text-decoration:none;color:black;" href="javascript:monthSelected=monthNow;yearSelected=yearNow;constructCalendar();">2016/ 9/14(수)</a></span></td></tr></tbody></table></div><div id="selectMonth" style="z-index:+999;position:absolute;visibility:hidden;"></div><div id="selectYear" style="z-index:+999;position:absolute;visibility:hidden;"></div>
+<script language="javascript">
+	var NS4;
+	var IE4; 
+	if (document.all) { 
+	    IE4 = true;
+	    NS4 = false;
+	} else {
+	    IE4 = false;
+	    NS4 = true;
+	}
+	function goSearch() {
+		frm.func_name.value = "list";
+		frm.action = "/userEstimate.kto";
+		frm.submit();
+	}
+	
+
+	function goPage(curr_page) {
+		frm.func_name.value = "listTravelInfo";
+		document.getElementById("curr_page").value = curr_page;
+		frm.action = "/userEstimate.kto";
+		//alert(curr_page);
+		frm.submit();
+	}
+	
+	//상세조회
+	function goView(srch_sn) {
+		frm.func_name.value = "view";
+		document.getElementById("pagingDTO.srch_sn").value = srch_sn;
+		frm.action = "/userEstimate.kto";
+		frm.submit();
+	}
+
+	//엑셀출력
+	function goExcel() {
+		frm.func_name.value = "excel";
+		frm.action = "/userEstimate.kto";
+		frm.submit();
+	}
+	function viewMemo(sn) {
+		
+		if(document.getElementById("memo"+sn).style.display == '') {
+			document.getElementById("memo"+sn).style.display="none";
+		} else {
+			document.getElementById("memo"+sn).style.display="";
+		}
+		resizeFrame("user_evaluation");
+		parent.resizeFrame("append_frame");
+	}
+
+	function goDelete(sn, mber_id){
+		parent.closeValuation_fu(2) ;
+		frm.func_name.value = "deleteTravelInfo";
+		frm.sn.value = sn;
+
+		frm.mber_id.value = mber_id;
+		//document.getElementById("curr_page").value = curr_page;
+		frm.action = "/userEstimate.kto";
+		//alert(curr_page);
+		frm.submit();
+		//parent.initAppend();
+	}
+
+	function goEdit_2(sn){
+		parent.document.estimateModForm.sn.value=sn;
+		//parent.document.getElementById("userfrm.sn").value=sn;
+		//parent.document.estimateModForm.tour_estimation.value=tour_estimation;
+		parent.editValuation_fu(2);
+	}
+
+	function resizeFrame(frame_name) {
+		if (IE4) {
+           var oBody = document.body;
+       	} else {
+           var oBody = contentDocument.body;
+       	}
+		var oFrame = parent.document.all(frame_name);
+		var min_height = 100;
+		var i_height = oBody.scrollHeight + (oBody.offsetHeight - oBody.clientHeight);
+	
+		if(i_height < min_height) i_height = min_height;
+		if(oFrame != null) oFrame.style.height = i_height;
+	}
+	var msg = "";
+	if (msg != "") {
+		alert(msg);
+	}
+
+</script>
+
+
+
+
+
+
+    	<form name="frm" method="post">
+    	<input name="func_name" type="hidden">      	 
+      	 <input name="pagingDTO.srch_sn" type="hidden">
+      	 <input name="contentid" value="309426" type="hidden">
+         <input id="curr_page" name="pagingDTO.curr_page" value="1" type="hidden">
+         <input name="pagingDTO.page_rows" value="10" type="hidden">
+         <input name="pagingDTO.rows_page" value="5" type="hidden">
+         <input name="sn" value="" type="hidden">
+		 <input name="tour_estimation" value="" type="hidden">
+         <input name="md" value="ena" type="hidden">
+         <input name="mber_id" value="" type="hidden">
+
+    	
+  
+  <table class="table_default_list" cellpadding="0" cellspacing="0" width="510">
+	<thead>
+		<tr>
+			<th width="60">No.</th>
+			<!--th width="230">comment</th><!--2008.12.08 윤상필 삭제-->
+			<th width="130">ID</th>
+			<th width="130"> evaluation </th>
+			<th width="130">date</th>
+			<th width="30"></th>
+			<th width="30"></th>
+		</tr>
+	</thead>
+            <tbody>
+    
+    </tbody>
+  </table>
+  </form>
+  <p class="bottomMar2"></p>
+  <table class="tableNoBorderCenter" cellpadding="0" cellspacing="0" width="510">
+    <tbody><tr>
+      <td class="center">
+      	<p id="pager">
+      	<a id="start"><b>«</b></a><a id="pre">PREV</a><span>|</span><a class="current">1</a><span>|</span><a id="next">NEXT</a><a id="end"><b>»</b></a>
+		 </p></td>
+    </tr>
+  </tbody></table>
+
+
+<p class="bottomMar3"></p>
+
+
+
+</body></html>
