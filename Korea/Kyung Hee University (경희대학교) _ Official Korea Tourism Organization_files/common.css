@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/*reset*/
+html, body, 
+div, h1, h2, h3, h4, h5, h6, 
+p, ul, ol, li, dl, dt, dd, 
+form, fieldset, input, select, label, textarea, 
+table, caption, thead, tfoot, tbody, tr, th, td {margin:0; padding:0;}
+article, aside, dialog, footer, header, section, footer, nav, figure, hgroup {display: block;margin:0;padding:0;}
+html, body {height:100%;}
+
+img{border:0;}
+ol, ul{list-style:none;} 
+table{border-collapse:collapse; border-spacing:0;  table-layout:fixed; }
+table > caption {font-size:0; line-height:0; height:0;}
+button, input[type=button] {cursor:pointer;}
+textarea {resize:vertical; overflow-y:auto; }
+fieldset{border:0}
+fieldset > legend {font-size:0; line-height:0; height:0;}
+address, i, em {font-style:normal;}
+
+/*common*/
+.clear-both {clear:both;}
+.text-hidden {position:absolute; overflow:hidden; top:-9999px; left:-9999px; width:0; height:1px; font-size:0; line-height:0; text-indent:-10000px;}
+.text-overflow {overflow: hidden; text-overflow: ellipsis; white-space:nowrap;}
+
+/*text-align*/
+.text-center {text-align:center;}
+.text-left {text-align:left!important;}
+.text-right {text-align:right;}
+
+/*float*/
+.float-left {float:left;}
+.float-right {float:right;}
+
+/*overflow*/
+.ovf-h {overflow:hidden;}
+.ovf-x {overflow-x:scroll;}
+.ovf-y {overflow-y:scroll;}

@@ -1,0 +1,105 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript" src="gis_data/jquery-1.js"></script>
+		<script type="text/javascript" src="gis_data/jquery-ui-1.js"></script>
+
+		<!-- <script type="text/javascript" src="/js/vk/common_intl/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="/js/vk/common_intl/jquery-ui.js"></script> -->
+		<script type="text/javascript" src="gis_data/emap.js"></script>
+		<link rel="stylesheet" href="common.css">
+		<link rel="stylesheet" href="gis_data/emap.css">
+
+		<link rel="stylesheet" type="text/css" href="gis_data/jquery-ui-1.css">
+		<script type="text/javascript" src="gis_data/tpLangApi_002.js"></script><script type="text/javascript" language="javascript" src="gis_data/tpLangApi.js" charset="utf-8"></script><script type="text/javascript" language="javascript" src="gis_data/tpLangApiEn.js" charset="utf-8"></script>
+		<script type="text/javascript" src="gis_data/proj4js-combined.js"></script>  <!-- 좌표변환 js -->
+
+
+
+
+<script type="text/javascript">
+	//== 좌표 변환 INIT ==================
+	Proj4js.defs['BESSEL'] = '+proj=longlat +ellps=bessel +towgs84=-146.43,507.89,681.46 +no_defs';
+	Proj4js.defs['WGS84'] = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs';
+	var wgs84 = new Proj4js.Proj('WGS84');
+	var bessel = new Proj4js.Proj('BESSEL');
+	var markNameObj ={};
+
+	/**
+	 * 구 좌표를 신 좌표 값으로 변환
+	 * @author
+	 * @param oriX : 구X좌표
+	 * @param oriY : 구Y좌표
+	 * @returns pos : 변환된 좌표 오브젝트 pos.x, pos.y
+	 */
+	function newConversion(oriX, oriY ){
+		oriX = oriX/3600/100; // 추가 연산
+		oriY = oriY/3600/100; // 추가 연산
+		var pos = new Proj4js.Point(oriX, oriY); // 좌표 객제 생성
+		Proj4js.transform(bessel, wgs84, pos); // 좌표 변환
+		/*var x = pos.x; // 결과값 X 좌표
+		var y = pos.y; // 결과값 Y 좌표
+	*/
+		return pos;
+	}
+
+	var wcong;
+	var tmap;
+		//#######################################################   지도 컨트롤   ########################################################
+
+		function mapInit(){
+			var clientId = "KTO";	// 인증키
+			var lang = "eng";			// chg : 중국어 간체, chb, 중국어 번체, jp : 일본어, en : 영어
+			var serviceDomain = "http://lbiz.talkyple.com";
+			var coordType = "wgs84";
+
+			var paramss;
+			// var tm = new tilo.point(197891, 452214);
+			// var wgs = new tilo.point(126.97691240705254,37.572210586468714);
+
+			if ("true"=="true"){
+				poi = newConversion(parseInt("45739417"),parseInt("13534015"));
+				wcong =  new tilo.point(poi.x, poi.y);
+			} else {
+				wcong = new tilo.point(494727,1130534);
+			}
+
+			tmap = new tilo.maps("mapDiv", {
+				point:wcong,						//지도 좌표 설정 필수
+				level:4, 							//지도 레벨 필수
+				coordinate:coordType,			//지도 좌표계 설정 좌표계는 tm(wtm), wgs84, wcongnamul 사용 가능
+				indexMap:false,						//인덱스맵 활성 default( false )
+				multiLang:false						//한글 병행 표기 default( false )
+			});
+			//명칭검색 pin
+			//tmap.setMarkStyle(50, {	url:"http://tong.visitkorea.or.kr/img/vk/enu/emap/icon_point.png",size: new tilo.size(30,41),offset: new tilo.size(-15,-20)	});
+			//param pin
+			tmap.setMarkStyle(51, {	url:"http://tong.visitkorea.or.kr/img/vk/enu/emap/icon_point.png",size: new tilo.size(30,41),offset: new tilo.size(-15,-20)	});
+			//kto, 문체부
+			tmap.setMarkStyle(100, {url:"http://tong.visitkorea.or.kr/img/vk/enu/emap/knto_poi.png",size: new tilo.size(30,31),offset: new tilo.size(-15,-15)	});
+			tmap.setMarkStyle(101, {url:"http://tong.visitkorea.or.kr/img/vk/enu/emap/icon_6.png",size: new tilo.size(30,30),offset: new tilo.size(-15,-15)	});
+			markNameObj[888888] = "Korea Tourism Organization";
+			markNameObj[888889] = "Ministry of Culture, Sports & tourism";
+			tmap.drawMark(888888, 100, new tilo.point(127.99178185795665, 37.32504811336853), ["mouseover","mouseout"], [markPosOverFunc,markoutEventFunc]);
+			tmap.drawMark(888889, 101, new tilo.point(127.26528483238324, 36.50507056411359), ["mouseover","mouseout"], [markPosOverFunc,markoutEventFunc]);
+
+			if ("true"=="true"){
+				tmap.drawMark(888899, 51, wcong , ["mouseover","mouseout"], [markPosOverFunc,markoutEventFunc]);
+				markNameObj[888899] = "Kyung Hee University (경희대학교)";
+			}
+		}
+		function markPosOverFunc(e) {
+			var tm = new tilo.point(e.x,e.y);
+			tmap.drawInfoWindow(1001, {
+				position: tm,																	// 필수
+				content: markNameObj[e.id],		// 필수 (text | html)
+				isBtn: false
+			});
+		}
+		function markoutEventFunc(e) {
+			tmap.removeInfoWindow(1001);
+		}
+
+		$(document).ready(function() {
+			mapInit();
+		});
+</script>
+<link href="gis_data/basic.css" type="text/css" rel="stylesheet"></head><body><div class="olMap" id="mapDiv" style="width:100%; height:100%;position:absolute;"><div class="olMapViewport olControlDragPanActive olControlZoomBoxActive olControlPinchZoomActive olControlNavigationActive olControlNavigationHistoryActive olControlNavigationHistoryolControlNavigationHistoryPreviousActive" style="position: relative; overflow: hidden; width: 100%; height: 100%;" id="OpenLayers_Map_5_OpenLayers_ViewPort"><div style="position: absolute; z-index: 749; left: 0px; top: 0px;" id="OpenLayers_Map_5_OpenLayers_Container"><div class="olLayerDiv olLayerGrid" dir="ltr" style="position: absolute; width: 100%; height: 100%; z-index: 100;" id="OpenLayers_Layer_TMS_7"><img src="gis_data/c00000c0b_007.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 521px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_006.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 777px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 521px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_008.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 777px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_003.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 265px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_008.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 1033px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_005.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 265px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_007.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 1033px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 9px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_004.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 1289px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_002.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 9px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_006.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 1289px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_005.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: -247px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0b_002.png" style="visibility: inherit; opacity: 1; position: absolute; left: 69px; top: 1545px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_004.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: -247px; width: 256px; height: 256px;" class="olTileImage"><img src="gis_data/c00000c0a_003.png" style="visibility: inherit; opacity: 1; position: absolute; left: -187px; top: 1545px; width: 256px; height: 256px;" class="olTileImage"></div><div class="olLayerDiv" dir="ltr" style="position: absolute; width: 100%; height: 100%; z-index: 330; left: 0px; top: 0px;" id="OpenLayers_Layer_Vector_24"><svg viewBox="0 0 183 1550" height="1550" width="183" style="display: block;" id="OpenLayers_Layer_Vector_24_svgRoot"><g transform="" style="visibility: visible;" id="OpenLayers_Layer_Vector_24_root"><g id="OpenLayers_Layer_Vector_24_vroot"></g><g id="OpenLayers_Layer_Vector_24_troot"></g></g></svg></div><div class="olLayerDiv" dir="ltr" style="position: absolute; width: 100%; height: 100%; z-index: 335;" id="OpenLayers_Layer_Markers_30"><div style="position: absolute; width: 30px; height: 31px; left: 83214px; top: 30921px;" id="OL_Icon_73"><img src="gis_data/knto_poi.png" class="olAlphaImg" style="position: relative; width: 30px; height: 31px;" id="OL_Icon_73_innerImage"></div><div style="position: absolute; width: 30px; height: 30px; left: 18625px; top: 121970px;" id="OL_Icon_77"><img src="gis_data/icon_6.png" class="olAlphaImg" style="position: relative; width: 30px; height: 30px;" id="OL_Icon_77_innerImage"></div><div style="position: absolute; width: 30px; height: 41px; left: 78px; top: 740px;" id="OL_Icon_81"><img src="gis_data/icon_point.png" class="olAlphaImg" style="position: relative; width: 30px; height: 41px;" id="OL_Icon_81_innerImage"></div></div></div><div unselectable="on" class="olControlCopyright olControlNoSelect" style="position: absolute; z-index: 1003;" id="OpenLayers_Control_Copyright_13"><div style="left: 18px; top: 1534px; width: 160px; height: 15px; position: absolute;" id="OpenLayers_Control_Copyright_baseDivOpenLayers_Map_5"><div class="OpenLayers_Control_Copyright_leftDiv" style="position: relative;" id="OpenLayers_Control_Copyright_leftDivOpenLayers_Map_5"><div class="OpenLayers_Control_Copyright_scaleMinDiv" style="position: relative;" id="OpenLayers_Control_Copyright_scaleMinDivOpenLayers_Map_5">0m</div><div class="OpenLayers_Control_Copyright_scaleMaxDiv" style="position: relative;" id="OpenLayers_Control_Copyright_scaleMaxDivOpenLayers_Map_5">65m</div></div><div class="OpenLayers_Control_Copyright_rightDivDiv" style="position: absolute;" id="OpenLayers_Control_Copyright_rightDivDivOpenLayers_Map_5"><div class="OpenLayers_Control_Copyright_mapDataTextDiv" style="position: relative;" id="OpenLayers_Control_Copyright_mapDataTextDivOpenLayers_Map_5">2016 SNBSOFT</div></div></div></div></div></div></body></html>

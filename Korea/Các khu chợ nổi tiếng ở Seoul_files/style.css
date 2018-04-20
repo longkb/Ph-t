@@ -1,0 +1,18 @@
+.socialktobox{text-align: right;padding-bottom: 17px;margin-top: 21px;}
+.socialktobox ul{list-style: none;padding: 0px;margin: 0px;}
+.socialktobox>ul>li{display: inline-block; margin-left:10px; position:relative;}
+.socialktobox>ul>li>a{display: block;width: 45px;height: 30px; text-indent:-9999em; font-size:1px; cursor:pointer;}
+a.icongmap{background: url(icon-map.png) no-repeat;}
+a.icongmap:hover{background: url(icon-map-h.png) no-repeat;}
+a.icontwitter{background: url(icon-twitter.png) no-repeat;}
+li.active a.icontwitter{background: url(icon-twitter-h.png) no-repeat;}
+a.iconyoutube{background: url(icon-youtube.png) no-repeat;}
+li.active a.iconyoutube{background: url(icon-youtube-h.png) no-repeat;}
+a.iconfacebook{background: url(icon-facebook.png) no-repeat;}
+li.active a.iconfacebook{background: url(icon-facebook-h.png) no-repeat;}
+
+.socialktobox>ul>li>ul.sub-plugin{margin-top: -90px;position: absolute;background: #ccc;width: 166px;right: 0px; display:none;}
+.socialktobox>ul>li>ul.sub-plugin li{border: 1px solid #a4a7ad;}
+.socialktobox>ul>li>ul.sub-plugin li a{display: block;padding: 6px 10px;
+font-size: 12px;}
+.socialktobox>ul>li.active>ul.sub-plugin{display:block;}
