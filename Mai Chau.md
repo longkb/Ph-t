@@ -21,14 +21,14 @@ Mai Châu
 	- Poom Cọong: 
 		+ Là một làng bản truyền thống với lịch sử hơn 700 năm, Poom Coong mang đậm chất văn hóa người dân tộc Thái trắng.
 	- Hang Mỏ Luông và Hang Chiều: Cách không xa trung tâm thị trấn Mai Châu, nằm sát quốc lộ 15 nhìn về phí bản Lác, Pom Coọng là hang Mỏ Luông và hang Chiều. 2 địa điểm này là quần thể hang động lớn và đặc sắc của Mai Châu. Điểm đặc biết nhất của cả 2 hang động này chính là những nhũ đá hàng nghìn năm tuổi, nhiều hình thù và màu sắc cực đẹp. Không thua gì nhũ đá ở Phong Nha Kẻ Bàng đâu bạn ạ.
-	- Gò Lao là một con thác nhỏ cách thị trấn Mai Châu khoảng 15km. Muốn đến được chân thác, bạn phải gửi xe và đi bộ khoảng 5 nhịp cầu thang mới có thể thấy được toàn cảnh của Gò Lao. Không được nhiều người biết đến, tuy nhiên, thác Gò Lao xứng đáng là một địa danh để bạn check-in đánh đấu tên tuổi mình khi đến Mai Châu.
+	- Gò Lào là một con thác nhỏ cách thị trấn Mai Châu khoảng 15km. Muốn đến được chân thác, bạn phải gửi xe và đi bộ khoảng 5 nhịp cầu thang mới có thể thấy được toàn cảnh của Gò Lao. Không được nhiều người biết đến, tuy nhiên, thác Gò Lao xứng đáng là một địa danh để bạn check-in đánh đấu tên tuổi mình khi đến Mai Châu.
 	- Ba Khan: 
 		+ Ba Khan như một Hạ Long trên cạn bởi những đỉnh núi xưa kia giờ chìm sâu gần 200m dưới lòng hồ tạo thành
 		+ Ba Khan là một xã nhỏ của Mai Châu nằm ven bờ hồ thủy điện Hòa Bình, từ đèo Thung Khe thả tầm nhìn về phía bình nguyên sau lưng đèo, đó chính là Ba Khan. Con đường này bắt đầu từ phía dưới chân đèo Thung Khe, chạy dọc qua hết xã Ba Khan rồi bắt đầu men theo lòng hồ Hòa Bình.
 		+ Đến thôn Suối Lốn, các bạn có thể rẽ vào khu Xóm Mới, hỏi nhà Bác Gươm nếu bạn muốn nghỉ lại một đêm ngay sát lòng hồ (giống hệt Thung Nai), thuê thuyền Kayak hay đơn giản hơn là một tour thuyền khám phá lòng hồ được dẫn bởi chính bác chủ nhà. Hiện bác là hộ dân duy nhất làm các hoạt động du lịch ở đây.
 		+ Hướng dẫn đường đi Ba Khan:
 			- Nếu đi từ Hà Nội, đến chân đèo Thung Khe các bạn nhìn sang phía tay phải sẽ thấy có một con đường nhỏ đề Ba Khan 10km, cứ thẳng con đường này mà đi nhé (đường Ba Khan – Phú Cường)
-			- Nếu đi từ Mai Châu, các bạn không cần quay lại đèo Thung Khe mà đi theo hướng đi Sơn La, đến ngã 3 Đồng Bảng thì rẽ phải vào. Đi thẳng khoảng 7km, đến chỗ trạm y tế Phúc Sạn thì các bạn rẽ phải theo con đường nhỏ ngay bên cạnh, đi khoảng 70m nữa thì đến chỗ xuống thác Gò Lào. Đi hết 30km đường này các bạn sẽ đến ngay chân đèo Thung Khe
+			- Nếu đi từ Mai Châu, các bạn không cần quay lại đèo Thung Khe mà đi theo hướng đi Sơn La, đến ngã 3 Đồng Bảng thì rẽ phải vào. Đi thẳng khoảng 7km, đến chỗ trạm y tế Phúc Sạn thì các bạn rẽ phải theo con đường nhỏ ngay bên cạnh, đi khoảng 15km nữa thì đến chỗ xuống thác Gò Lào. Nếu muốn xuống đi thuyền quanh hồ Ba Khan thì lưu ý điểm Lòng Hồ trên đường đi (http://chungtadidau.com/toi-di/mot-chut-ba-khan/). Đi hết 30km đường này các bạn sẽ đến ngay chân đèo Thung Khe
 * Các món ăn ngon ở Mai Châu:
 	- **Cơm lam Mai Châu**:  Ăn cơm lam ngoài muối vừng còn không thể thiếu một loại gia vị truyền thống của người Thái là “chẩm chéo”.
 	- **Gà nướng**: Gà được tẩm ướp bằng các gia vị độc đáo của người Thái rồi dùng kẹp tre hoặc kẹp sắt để nướng trên than hồng. Món gà rất hợp ăn cùng xôi nếp hoặc cơm lam.
