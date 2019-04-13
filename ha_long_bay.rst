@@ -21,9 +21,9 @@ Thời gian đi Vịnh
 Di chuyển
 =========
 
-* Limousine 9 chỗ với ghế ngồi rộng rãi, thoải mái và đi đường cao tốc Hà Nội – Hải Phòng để rút ngắn thời gian di chuyển xuống chỉ còn khoảng 3 tiếng
-
-  * https://cungphuot.info/xe-khach-di-quang-ninh-post5103.cp
+* Từ Hà Nội đi Hạ Long bạn có thể chọn nhiều đường:
+	- Đường từ Hà Nội tới Uông Bí –Quảng Ninh bằng xe máy bạn Huy nên xuất phát từ nội thành thành phố Hà Nội để mình dễ dàng chỉ đường nha. Bạn đi từ nội thành Hà Nội theo hướng một trong số những cầu sau: Vĩnh Tuy, cầu Long Biên, cầu Chương Dương, cầu Thanh Trì để vượt qua được đoạn sông Hồng. Sau đó bạn hãy tiến thẳng vào đường 5 để đi vê hướng đi Hải Dương. Bạn sẽ mất khoảng 1 tiếng để đến Hải Dương đó, rơi vào 55km nhé. Từ điểm này bạn rẽ trái đến thị trấn Sao Đỏ rồi đi tiếp 25km nữa để tới thẳng thị trấn Sao Đỏ của huyện Chí Linh thuộc tỉnh Hải Dương. Từ đoạn đường này bạn hãy đi theo hướng quốc lộ 18 khoảng 20km nữa là tới thị trấn Đông Triều, tiến vào tỉnh lộ 326 rồi đi 30km nữa là tới được thành phố Uông Bí rồi đó nha.
+	- Đường đi Hà Nội Uông Bí bạn đi từ nội thành Hà Nội nhé, không đi theo đường 5 nữa mà hãy đi theo quốc lộ 1A rồi đi thẳng là tới thành phố Bắc Ninh đó, quãng đường này rơi vào khoảng 30km thôi nhé. Sau đó bạn Huy đi từ cầu vượt thành phố Bắc Ninh rẽ phải theo đường đi Phả Lai đó, chỗ nãy thuộc huyện CHí Linh của tỉnh Hải Dương rồi nha. CHỉ cần đi tiếp 25km nữa là tới được Phả Lại. Từ Phả Lại bạn Huy tiếp tục đi theo đường quốc lộ 18 tầm 30km để tới thị xã Đông Triều tỉnh Quảng Ninh. Đi tiếp hướng quốc lộ 326 khoảng 31km nữa là tới được thành phố Phả Lại.
 
 * Thuê xe máy: https://cungphuot.info/thue-xe-may-tai-quang-ninh-post24255.cp
 
@@ -55,7 +55,6 @@ Các địa điểm check-in
 		+ Hiện tại do Núi Bài Thơ cấm leo do ý thức xả rác và có lần bị cháy lớn. Vì vậy các bạn phải đi qua đường lách qua nhà dân.
 * Bảo tàng và Thư viện Quảng Ninh:
 	- Bảo tàng Quảng Ninh trưng bày và bảo quản gần 30.000 tài liệu, hiện vật gốc về văn hóa, lịch sử và con người Quảng Ninh.
-	- https://cungphuot.info/kinh-nghiem-du-lich-quan-lan-post24243.cp
 
 * Đảo Mắt Rồng
 	- Nằm ở rìa phía Nam Vịnh Hạ Long, gần vùng biển tiếp giáp với vịnh Lan Hạ (Hải Phòng)
